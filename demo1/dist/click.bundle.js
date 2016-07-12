@@ -55,7 +55,7 @@
 	var $ = __webpack_require__(2);
 	$(function(){
 		$('#btn').on('click',function(){
-			$('header').append('<span>111111111111111fuck you</span>')
+			$('header').append('<span>fuck you hello</span>')
 		})
 	})
 
@@ -10145,7 +10145,7 @@
 
 	var $ = __webpack_require__(2);
 	$(function(){
-		alert('33333');
+		alert('click2');
 	})
 
 /***/ }
