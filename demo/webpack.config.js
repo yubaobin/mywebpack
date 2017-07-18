@@ -58,7 +58,7 @@ let config = {
             collapseWhitespace: false
           }
         }],
-      }]]
+      }]
 	},
 	resolve: {
 	  //自动扩展文件后缀，在使用require时省略后缀名
