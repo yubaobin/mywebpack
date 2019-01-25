@@ -1,12 +1,7 @@
 div {
-	color: #DDD;
+	color: #EEE;
 }
 #demoImg {
 	width: 100px;
 	height: 100px;
-}
-.demoImg {
-	width: 150px;
-	height: 100px;
-	background: url('../img/demo.jpg') no-repeat center/100px 100px;
 }

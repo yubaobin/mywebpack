@@ -1,0 +1,5 @@
+.demoImg {
+	width: 150px;
+	height: 100px;
+	background: url('../img/demo.jpg') no-repeat center/100px 100px;
+}

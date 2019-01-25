@@ -4,6 +4,7 @@ const CleanWebpackPlugin = require('clean-webpack-plugin');
 const webpack = require('webpack')
 module.exports = {
   entry: {
+    main: './src/js/main.js',
     app: './src/js/app.js'
   },
   output: {
@@ -16,10 +17,6 @@ module.exports = {
     runtimeChunk: {
       name: 'manifest'
     }
-  },
-  devServer: {
-    contentBase: './dist',
-    hot: true
   },
   plugins: [
     new CleanWebpackPlugin(['dist']),
