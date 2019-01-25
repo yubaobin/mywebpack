@@ -41,10 +41,15 @@ module.exports = {
     }, {
       test: /\.(png|svg|jpg|gif)$/,
       use: [{
-        loader: 'file-loader',
+        loader: 'url-loader',
         options: {
           limit: 4096,
-          name: 'img/[name].[hash:8].[ext]'
+          fallback: {
+            loader: 'file-loader',
+            options: {
+              name: 'img/[name].[hash:8].[ext]'
+            }
+          }
         }
       }],
       exclude: [path.resolve(__dirname, 'src/font')]

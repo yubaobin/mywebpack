@@ -6,7 +6,6 @@ const config = require('./webpack.dev');
 const options = {
   contentBase: './dist',
   hot: true,
-  open: true,
   compress: true,
   host: 'localhost',
   publicPath: '/'
