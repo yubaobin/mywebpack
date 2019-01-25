@@ -1,13 +1,12 @@
 const webpackServer = require('webpack-dev-server');
 const webpack = require('webpack');
-const config = require('./webpack.config');
+const config = require('./webpack.dev');
 
 // webpack-dev-serve 配置
 const options = {
   contentBase: './dist',
   hot: true,
-  open: 'Google Chrome',
-  openPage: 'index',
+  open: true,
   compress: true,
   host: 'localhost',
   publicPath: '/'
