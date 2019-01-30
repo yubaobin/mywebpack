@@ -7,21 +7,34 @@ const CleanWebpackPlugin = require('clean-webpack-plugin');
 
 module.exports = {
   entry: {
-    main: './src/js/main.js',
+    demoBabel: './src/js/demoBabel.js',
+    book: './src/js/book.js',
+    shop: './src/js/shop.js',
     app: './src/js/app'
   },
   output: {
     path: resolve('/dist'),
     publicPath: '/',
-    filename: 'js/[name].bundle.js',
+    filename: 'js/[name].[hash].js',
   },
   resolve: {
     extensions: [
       '.js',
       '.jsx',
-      '.vue',
       '.json'
     ],
+  },
+  optimization: {
+    runtimeChunk: 'single',
+    splitChunks: {
+      cacheGroups: {
+        vendor: {
+          test: /[\\/]node_modules[\\/]/,
+          name: 'vendors',
+          chunks: 'all'
+        }
+      }
+    }
   },
   plugins: [
     new CleanWebpackPlugin(['dist']),
@@ -32,6 +45,12 @@ module.exports = {
   ],
   module: {
     rules: [{
+      test: /\.js$/,
+      exclude: /(node_modules|bower_components)/,
+      use: [{
+        loader: 'babel-loader'
+      }]
+    }, {
       test: /\.css$/,
       use: [{
         loader: 'style-loader',

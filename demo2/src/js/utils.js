@@ -1,7 +1,7 @@
-export const squre = function (x) {
+export const squre = (x) => {
   return x * x
 }
 
-export const add = function (a, b) {
+export const add = (a, b) => {
   return a + b
 }

@@ -1,4 +1,5 @@
 const megre = require('webpack-merge');
+const webpack = require('webpack');
 const common = require('./webpack.common');
 module.exports = megre(common, {
   mode: 'production',
@@ -6,5 +7,11 @@ module.exports = megre(common, {
     runtimeChunk: {
       name: 'manifest'
     }
-  }
+  },
+  plugins: [
+    new webpack.DefinePlugin({
+      'process.env.NODE_ENV': JSON.stringify('production')
+    }),
+    new webpack.HashedModuleIdsPlugin()
+  ]
 })
