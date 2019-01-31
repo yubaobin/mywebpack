@@ -4,13 +4,14 @@ function resolve (dir) {
 }
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const CleanWebpackPlugin = require('clean-webpack-plugin');
+const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 
 module.exports = {
   entry: {
     demoBabel: './src/js/demoBabel.js',
     book: './src/js/book.js',
     shop: './src/js/shop.js',
-    app: './src/js/app'
+    app: './src/js/app.js'
   },
   output: {
     path: resolve('/dist'),
@@ -41,6 +42,9 @@ module.exports = {
     new HtmlWebpackPlugin({
       title: 'demo2',
       template: resolve('index.html')
+    }),
+    new MiniCssExtractPlugin({
+      filename: 'css/style.[hash].css'
     })
   ],
   module: {
@@ -52,11 +56,24 @@ module.exports = {
       }]
     }, {
       test: /\.css$/,
-      use: [{
-        loader: 'style-loader',
-      }, {
-        loader: 'css-loader'
-      }]
+      use: [
+        MiniCssExtractPlugin.loader,
+        'css-loader'
+      ]
+    }, {
+      test: /\.less$/,
+      use: [
+        MiniCssExtractPlugin.loader,
+        'css-loader',
+        'less-loader'
+      ]
+    }, {
+      test: /\.(sass|scss)$/,
+      use: [
+        MiniCssExtractPlugin.loader,
+        'css-loader',
+        'sass-loader'
+      ]
     }, {
       test: /\.(png|svg|jpg|gif)$/,
       use: [{

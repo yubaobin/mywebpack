@@ -1,8 +1,8 @@
 import _ from 'lodash'
 import print from './print.js'
-import '../css/style.css'
-import '../css/style2.css'
-import '../css/iconfont.css'
+import '../css/style.less'
+import '../css/style2.less'
+import '../css/iconfont.less'
 import demoImg from '../img/demo.jpg'
 (function(){
   const html = document.createElement('div')

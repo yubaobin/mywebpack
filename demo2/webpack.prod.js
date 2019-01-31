@@ -1,6 +1,7 @@
 const megre = require('webpack-merge');
 const webpack = require('webpack');
 const common = require('./webpack.common');
+
 module.exports = megre(common, {
   mode: 'production',
   optimization: {
