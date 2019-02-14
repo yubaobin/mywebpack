@@ -26,13 +26,12 @@ module.exports = {
     ],
   },
   optimization: {
-    runtimeChunk: 'single',
     splitChunks: {
+      chunks: 'all',
+      name: true,
       cacheGroups: {
-        vendor: {
-          test: /[\\/]node_modules[\\/]/,
-          name: 'vendors',
-          chunks: 'all'
+        vendors: {
+          test: /[\\/]node_modules[\\/]/
         }
       }
     }
