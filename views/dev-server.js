@@ -8,11 +8,11 @@ const options = {
   publicPath: '/',
   hot: true,
   compress: true,
-  host: '0.0.0.0',
-  port: 5000
+  host: 'localhost',
+  open: true
 }
 
 const compiler = webpack(config)
 const server = new webpackServer(compiler, options)
-server.listen(5001, 'localhost', () => {
+server.listen(5000, '', () => {
 })

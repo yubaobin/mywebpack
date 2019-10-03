@@ -11,7 +11,7 @@ module.exports = {
   resolve: {
     alias: {
       '@': path.resolve(__dirname, 'src'),
-      'styles': path.resolve(__dirname, 'styles'),
+      'styles': path.resolve(__dirname, 'src/styles'),
     },
     extensions: ['.mjs', '.js', '.jsx', '.json', '.wasm'],
     modules: ['node_modules']
@@ -38,8 +38,7 @@ module.exports = {
         loader: 'css-loader',
         options: {
           sourceMap: true,
-          importLoaders: 2,
-          modules: true
+          importLoaders: 2
         }
       }, {
         loader: 'postcss-loader',
@@ -50,7 +49,7 @@ module.exports = {
         loader: 'sass-loader',
         options: {
           sourceMap: true,
-          data: '@import "~styles/variables.scss";'
+          prependData: '@import "~styles/variables.scss";'
         }
       }]
     }, {
@@ -62,7 +61,7 @@ module.exports = {
           fallback: {
             loader: 'file-loader',
             options: {
-              publicPath: config.publicPath ? `${publicPath}/images` : '../images',
+              publicPath: config.publicPath ? `${config.publicPath}/images` : '../images',
               outputPath: 'images',
               name: '[name].[hash:8].[ext]'
             }
@@ -70,7 +69,7 @@ module.exports = {
         }
       }]
     }, {
-      test: /\.(woff2?|eot|ttf|otf)(\?.*)?$/i,
+      test: /\.(woff2?|eot|ttf|otf|svg)(\?.*)?$/i,
       use: [{
         loader: 'url-loader',
         options: {
@@ -78,7 +77,7 @@ module.exports = {
           fallback: {
             loader: 'file-loader',
             options: {
-              publicPath: config.publicPath ? `${publicPath}/fonts` : '../fonts',
+              publicPath: config.publicPath ? `${config.publicPath}/fonts` : '../fonts',
               outputPath: 'fonts',
               name: '[name].[hash:8].[ext]'
             }
@@ -106,5 +105,5 @@ let htmlArray = Object.keys(entryObj).map((element) => Object.assign({}, {
 }))
 //自动生成html模板
 htmlArray.forEach((element) => {
-  module.exports.plugins.push(new HtmlWebpackPlugin(getHtmlConfig(element._html,element.chunks)));
+  module.exports.plugins.push(new HtmlWebpackPlugin(utils.getHtmlConfig(element._html, element.chunks)))
 })
