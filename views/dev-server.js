@@ -1,18 +1,18 @@
-const webpackServer = require('webpack-dev-server');
-const webpack = require('webpack');
-const config = require('./webpack.dev');
+const path = require('path')
+const webpackServer = require('webpack-dev-server')
+const webpack = require('webpack')
+const config = require('./webpack.dev.conf')
 
 const options = {
-  contentBase: './example',
+  contentBase: path.resolve(__dirname, 'dist'),
+  publicPath: '/',
   hot: true,
   compress: true,
-  host: 'localhost',
-  publicPath: '/'
-};
+  host: '0.0.0.0',
+  port: 5000
+}
 
-webpackServer.addDevServerEntrypoints(config, options);
 const compiler = webpack(config)
-const server = new webpackServer(compiler, options);
+const server = new webpackServer(compiler, options)
 server.listen(5001, 'localhost', () => {
-  console.log('可以打开浏览器浏览，localhost:' + 5001);
 })
