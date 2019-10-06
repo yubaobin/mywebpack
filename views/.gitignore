@@ -1,8 +1,8 @@
 .DS_Store
 node_modules
 dist
-CiForVue/
-CiForVue/.zip
+pages/
+pages.zip
 public/login.html
 # local env files
 .env.local

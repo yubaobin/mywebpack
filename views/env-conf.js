@@ -1,8 +1,11 @@
 module.exports = {
   dev: {
-    publicPath: ''
+    publicPath: '',
+    host: 'localhost',
+    port: 5000
   },
   prod: {
-    publicPath: '/'
+    publicPath: '/pages',
+    outputPath: 'pages'
   }
 }

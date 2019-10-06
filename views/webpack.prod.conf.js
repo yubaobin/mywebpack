@@ -10,8 +10,8 @@ const webpackConfigDev = {
   mode: 'production',
   output: {
     publicPath: config.publicPath,
-    path: path.resolve(__dirname, config.publicPath || 'dist' ),
-    filename: 'js/[name].bundle.js',
+    path: path.resolve(__dirname, config.outputPath || 'dist' ),
+    filename: 'js/[name].[hash].js',
   },
   optimization: {
     splitChunks: {
@@ -44,9 +44,7 @@ const webpackConfigDev = {
         safe: true
       }
     }),
-    new CleanWebpackPlugin({
-      dry: true,
-    })
+    new CleanWebpackPlugin()
   ],
   devtool: false
 }

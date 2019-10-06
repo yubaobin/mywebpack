@@ -18,7 +18,7 @@ module.exports = {
   },
   plugins: [
     new webpack.ProgressPlugin(),
-    new TransferWebpackPlugin([{ from: 'assets', to: 'assets' }], path.resolve(__dirname, 'src'))
+    new TransferWebpackPlugin([{ from: 'static', to: 'static' }], path.resolve(__dirname, 'src'))
   ],
   module: {
     rules: [{
