@@ -4,7 +4,7 @@
   "description": "",
   "private": true,
   "dependencies": {
-    "lodash": "^4.17.11"
+    "lodash": "^4.17.19"
   },
   "devDependencies": {
     "css-loader": "^2.1.0",
